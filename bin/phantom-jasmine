@@ -6,8 +6,9 @@ var fs = require('fs');
 var yaml = require('yaml');
 
 fs.readFile('./spec/load.yml', function(err, data) {
-  var scripts = yaml.eval(data.toString());
-  console.log(scripts);
+  if (!err) {
+    var scripts = yaml.eval(data.toString());
+  }
 });
 
 var lib = path.join(__dirname, './../lib');
