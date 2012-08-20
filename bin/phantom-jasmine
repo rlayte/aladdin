@@ -2,6 +2,14 @@
 
 var exec = require('child_process').exec;
 var path = require('path');
+var fs = require('fs');
+var yaml = require('yaml');
+
+fs.readFile('./spec/load.yml', function(err, data) {
+  var scripts = yaml.eval(data.toString());
+  console.log(scripts);
+});
+
 var lib = path.join(__dirname, './../lib');
 
 var cmds = [
