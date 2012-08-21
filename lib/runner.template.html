@@ -5,8 +5,8 @@
 
   <body>
 
-    <script type="text/javascript" src="../vendor/jasmine-1.2.0/jasmine.js"></script>
-    <script type="text/javascript" src="../vendor/jasmine-1.2.0/jasmine-html.js"></script>
+    <script type="text/javascript" src="{{{vendor}}}/jasmine-1.2.0/jasmine.js"></script>
+    <script type="text/javascript" src="{{{vendor}}}/jasmine-1.2.0/jasmine-html.js"></script>
     
     {{#scripts}}
     <script src="{{{.}}}" type="text/javascript" charset="utf-8"></script>
@@ -16,7 +16,7 @@
     <script src="{{{.}}}" type="text/javascript" charset="utf-8"></script>
     {{/specs}}
 
-    <script type="text/javascript" src="console-runner.js"></script>
+    <script type="text/javascript" src="{{{lib}}}/console-runner.js"></script>
 
     <script type="text/javascript">
       var console_reporter = new jasmine.ConsoleReporter()

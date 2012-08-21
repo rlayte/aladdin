@@ -12,12 +12,17 @@
     "url": "git://github.com/jcarver989/phantom-jasmine.git"
   },
   "main": "lib/run_jasmine_test.coffee",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "bin": {
     "phantom-jasmine": "./bin/phantom-jasmine"
   },
   "preferGlobal": true,
   "dependencies": {},
+  "dependencies": {
+    "yaml": "0.2.3",
+    "walkdir": "0.0.4",
+    "mustache": "0.5.2"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {

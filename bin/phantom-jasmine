@@ -14,13 +14,18 @@ var render = function(template, context) {
 }
 
 var loadScripts = function(f) {
-  fs.readFile('./spec/load.yml', function(err, data) {
-    if (!err) {
-      var scripts = yaml.eval(data.toString()).map(function(script) {
-        return path.resolve(lib, script);
-      });
+  fs.exists('./spec/load.yml', function(exists) {
+    if (exists) {
+      fs.readFile('./spec/load.yml', function(err, data) {
+        var scripts = yaml.eval(data.toString()).map(function(script) {
+          return path.join(process.cwd(), script);
+        });
 
-      f(scripts);
+        f(scripts);
+      });
+    }
+    else {
+      f();
     }
   });
 }
@@ -51,22 +56,15 @@ var runTests = function(runner) {
 
   exec(cmds.join(' '), function(err, stdout, stderr) {
     console.log(stdout);
+    fs.unlink(runner);
   });
 }
 
 var createRunner = function(html) {
-  var runner = path.join(lib, 'runner.html');
+  var runner = path.join(process.cwd(), 'runner.html');
 
   fs.writeFile(runner, html, function() {
     runTests(runner);
-  });
-}
-
-var loadRunner = function(f) {
-  var runner = path.join(lib, 'console-runner.js');
-
-  fs.readFile(runner, function(err, data) {
-    f(data.toString());
   });
 }
 
@@ -76,7 +74,8 @@ var loadTemplate = function() {
   fs.readFile(template, function(err, data) {
     loadScripts(function(scripts) {
       loadSpecs(function(specs) {
-        var context = { scripts: scripts, specs: specs };
+        var vendor = path.join(__dirname, './../vendor');
+        var context = { scripts: scripts, specs: specs, lib: lib, vendor: vendor };
         var html = render(data.toString(), context);
 
         createRunner(html);
