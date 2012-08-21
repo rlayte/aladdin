@@ -25,10 +25,11 @@ var loadScripts = function(f) {
 }
 
 var loadSpecs = function(f) {
-  var specPath = process.argv[2] || './spec/';
+  var specPath = process.argv[2] || 'spec';
+  specPath = path.join(process.cwd(), specPath);
 
   if (path.extname(specPath) == '.js') {
-    f([ path.join(process.cwd(), specPath) ]);
+    f([ specPath ]);
   }
   else {
     fs.readdir(specPath, function(err, files) {
@@ -36,7 +37,7 @@ var loadSpecs = function(f) {
         var specs = files.filter(function(file) {
           return path.extname(file) == '.js';
         }).map(function(file) {
-          return path.join(process.cwd(), 'spec', file);
+          return path.join(specPath, file);
         });
 
         f(specs);
