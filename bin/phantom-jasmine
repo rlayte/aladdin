@@ -25,17 +25,24 @@ var loadScripts = function(f) {
 }
 
 var loadSpecs = function(f) {
-  fs.readdir('./spec/', function(err, files) {
-    if (!err) {
-      var specs = files.filter(function(file) {
-        return path.extname(file) == '.js';
-      }).map(function(file) {
-        return path.join(process.cwd(), 'spec', file);
-      });
+  var specPath = process.argv[2] || './spec/';
 
-      f(specs);
-    }
-  });
+  if (path.extname(specPath) == '.js') {
+    f([ path.join(process.cwd(), specPath) ]);
+  }
+  else {
+    fs.readdir(specPath, function(err, files) {
+      if (!err) {
+        var specs = files.filter(function(file) {
+          return path.extname(file) == '.js';
+        }).map(function(file) {
+          return path.join(process.cwd(), 'spec', file);
+        });
+
+        f(specs);
+      }
+    });
+  }
 }
 
 var runTests = function(runner) {
