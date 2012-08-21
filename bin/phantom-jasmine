@@ -4,6 +4,7 @@ var exec = require('child_process').exec;
 var path = require('path');
 var fs = require('fs');
 var yaml = require('yaml');
+var walkdir = require('walkdir');
 var Mustache = require('mustache');
 
 var lib = path.join(__dirname, './../lib');
@@ -32,17 +33,12 @@ var loadSpecs = function(f) {
     f([ specPath ]);
   }
   else {
-    fs.readdir(specPath, function(err, files) {
-      if (!err) {
-        var specs = files.filter(function(file) {
-          return path.extname(file) == '.js';
-        }).map(function(file) {
-          return path.join(specPath, file);
-        });
-
-        f(specs);
-      }
+    var files = walkdir.sync(specPath);
+    var specs = files.filter(function(file) {
+      return path.extname(file) == '.js';
     });
+
+    f(specs);
   }
 }
 
