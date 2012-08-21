@@ -15,7 +15,11 @@ var render = function(template, context) {
 var loadScripts = function(f) {
   fs.readFile('./spec/load.yml', function(err, data) {
     if (!err) {
-      var scripts = yaml.eval(data.toString());
+      var scripts = yaml.eval(data.toString()).map(function(script) {
+        console.log(script);
+        return path.resolve(lib, script);
+      });
+
       f(scripts);
     }
   });
@@ -30,12 +34,11 @@ var runTests = function(runner) {
 
   exec(cmds.join(' '), function(err, stdout, stderr) {
     console.log(stdout);
-    fs.unlink(runner);
   });
 }
 
 var createRunner = function(html) {
-  var runner = './spec/runner.html';
+  var runner = path.join(lib, 'runner.html');
 
   fs.writeFile(runner, html, function() {
     runTests(runner);
@@ -55,12 +58,10 @@ var loadTemplate = function() {
 
   fs.readFile(template, function(err, data) {
     loadScripts(function(scripts) {
-      loadRunner(function(runner) {
-        var context = { runner: runner, scripts: scripts };
-        var html = render(data.toString(), context);
+      var context = { scripts: scripts };
+      var html = render(data.toString(), context);
 
-        createRunner(html);
-      });
+      createRunner(html);
     });
   });
 }
