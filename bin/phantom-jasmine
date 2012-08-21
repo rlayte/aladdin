@@ -16,11 +16,24 @@ var loadScripts = function(f) {
   fs.readFile('./spec/load.yml', function(err, data) {
     if (!err) {
       var scripts = yaml.eval(data.toString()).map(function(script) {
-        console.log(script);
         return path.resolve(lib, script);
       });
 
       f(scripts);
+    }
+  });
+}
+
+var loadSpecs = function(f) {
+  fs.readdir('./spec/', function(err, files) {
+    if (!err) {
+      var specs = files.filter(function(file) {
+        return path.extname(file) == '.js';
+      }).map(function(file) {
+        return path.join(process.cwd(), 'spec', file);
+      });
+
+      f(specs);
     }
   });
 }
@@ -58,10 +71,12 @@ var loadTemplate = function() {
 
   fs.readFile(template, function(err, data) {
     loadScripts(function(scripts) {
-      var context = { scripts: scripts };
-      var html = render(data.toString(), context);
+      loadSpecs(function(specs) {
+        var context = { scripts: scripts, specs: specs };
+        var html = render(data.toString(), context);
 
-      createRunner(html);
+        createRunner(html);
+      });
     });
   });
 }

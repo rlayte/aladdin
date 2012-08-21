@@ -7,6 +7,14 @@
 
     <script type="text/javascript" src="../vendor/jasmine-1.2.0/jasmine.js"></script>
     <script type="text/javascript" src="../vendor/jasmine-1.2.0/jasmine-html.js"></script>
+    
+    {{#scripts}}
+    <script src="{{{.}}}" type="text/javascript" charset="utf-8"></script>
+    {{/scripts}}
+    
+    {{#specs}}
+    <script src="{{{.}}}" type="text/javascript" charset="utf-8"></script>
+    {{/specs}}
 
     <script type="text/javascript" src="console-runner.js"></script>
 
@@ -16,9 +24,5 @@
       jasmine.getEnv().addReporter(console_reporter);
       jasmine.getEnv().execute();
     </script>
-    
-    {{#scripts}}
-    <script src="{{{.}}}" type="text/javascript" charset="utf-8"></script>
-    {{/scripts}}
   </body>
 </html>
