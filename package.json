@@ -17,7 +17,6 @@
     "phantom-jasmine": "./bin/phantom-jasmine"
   },
   "preferGlobal": true,
-  "dependencies": {},
   "dependencies": {
     "yaml": "0.2.3",
     "walkdir": "0.0.4",

@@ -55,6 +55,9 @@ var runTests = function(runner) {
   ];
 
   exec(cmds.join(' '), function(err, stdout, stderr) {
+    if (err) {
+      console.log(stderr);
+    }
     console.log(stdout);
     fs.unlink(runner);
   });
