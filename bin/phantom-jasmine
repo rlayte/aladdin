@@ -31,8 +31,13 @@ var loadScripts = function(f) {
 }
 
 var loadSpecs = function(f) {
-  var specPath = process.argv[2] || 'spec';
-  specPath = path.join(process.cwd(), specPath);
+  var dir = process.argv[2] || 'spec';
+  specPath = path.join(process.cwd(), dir);
+
+  if (!fs.exists(specPath)) {
+    console.log('Spec directory "' + dir + '" not found');
+    return false;
+  }
 
   if (path.extname(specPath) == '.js') {
     f([ specPath ]);
@@ -58,6 +63,7 @@ var runTests = function(runner) {
     if (err) {
       console.log(stderr);
     }
+
     console.log(stdout);
     fs.unlink(runner);
   });
