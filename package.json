@@ -12,7 +12,8 @@
     "url": "git://github.com/jcarver989/phantom-jasmine.git"
   },
   "main": "lib/run_jasmine_test.coffee",
-  "version": "0.1.4",
+  "private": true,
+  "version": "0.1.6",
   "bin": {
     "phantom-jasmine": "./bin/phantom-jasmine"
   },

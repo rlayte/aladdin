@@ -34,22 +34,24 @@ var loadSpecs = function(f) {
   var dir = process.argv[2] || 'spec';
   specPath = path.join(process.cwd(), dir);
 
-  if (!fs.exists(specPath)) {
-    console.log('Spec directory "' + dir + '" not found');
-    return false;
-  }
+  fs.exists(specPath, function(exists) {
+    if (!exists) {
+      console.log('Spec directory "' + dir + '" not found');
+      return false;
+    }
 
-  if (path.extname(specPath) == '.js') {
-    f([ specPath ]);
-  }
-  else {
-    var files = walkdir.sync(specPath);
-    var specs = files.filter(function(file) {
-      return path.extname(file) == '.js';
-    });
+    if (path.extname(specPath) == '.js') {
+      f([ specPath ]);
+    }
+    else {
+      var files = walkdir.sync(specPath);
+      var specs = files.filter(function(file) {
+        return path.extname(file) == '.js';
+      });
 
-    f(specs);
-  }
+      f(specs);
+    }
+  });
 }
 
 var runTests = function(runner) {
