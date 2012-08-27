@@ -14,9 +14,19 @@ var render = function(template, context) {
 }
 
 var loadScripts = function(f) {
-  fs.exists('./spec/load.yml', function(exists) {
+  var config = './spec/load.yml';
+
+  if (process.argv.indexOf('--config') !== -1) {
+    config = process.argv[process.argv.indexOf('--config') + 1];
+  }
+
+  if (process.argv.indexOf('-c') !== -1) {
+    config = process.argv[process.argv.indexOf('-c') + 1];
+  }
+
+  fs.exists(config, function(exists) {
     if (exists) {
-      fs.readFile('./spec/load.yml', function(err, data) {
+      fs.readFile(config, function(err, data) {
         var scripts = yaml.eval(data.toString()).map(function(script) {
           return path.join(process.cwd(), script);
         });
