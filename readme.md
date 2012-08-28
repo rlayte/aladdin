@@ -15,15 +15,29 @@ Assuming you have PhantomJs setup and installed...
     sudo npm install phantom-jasmine -g
 
 
+Loading source file
+-------------------
+
+By default phantom-jasmine will look for a yaml file in `spec/load.yml`. Use this to list all the scripts you want to load before your specs. e.g.
+
+    ---
+      - 'lib/jquery.js'
+      - 'app/**/*.js'
+
+If you want to put this file elsewhere use the `--config` flag, e.g.
+
+    phantom-jasmine --config tests/config.yml
+
+
 Running Tests
 -------------------
 
-    phantom-jasmine examples/TestRunner.html
+    phantom-jasmine
 
-On some running OS X you might have to pass in the full url, ex:
+Or run specific specs
 
-    phantom-jasmine file://localhost/Users/bob/phantom-jasmine/examples/TestRunner.html 
-
+    phantom-jasmine spec/path/my_spec.js
+    phantom-jasmine spec/path/
 
 If everything works you should see output like this in your terminal:
 
@@ -33,6 +47,3 @@ If everything works you should see output like this in your terminal:
     Finished
     -----------------
     3 specs, 1 failure in 0.024s.
-    
-
-To run your own tests with Phantom-Jasmine just look at TestRunner.html and modify/copy the script tags accordingly.
