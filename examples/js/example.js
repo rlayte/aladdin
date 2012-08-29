@@ -18,3 +18,7 @@ var Util = {
     return acc;
   }
 };
+
+var fail = function() {
+  return foo;
+};
