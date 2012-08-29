@@ -1,17 +1,13 @@
 Phantom-Jasmine
 =====================
 
-Phantom-Jasmine is a simple set of two scripts for running your Jasmine Tests via Phantom.js (http://www.phantomjs.org/).
-The first script lib/console-runner.js is a plugin to Jasmine that outputs test results (with ansi color codes) via console.log (included with a script tag inside TestRunner.html).
-The second script lib/run_jasmine_test.coffee takes an html file as it's first and only argument and then executes any Jasmine tests
-that file loads. See below for more detail.
+Run jasmine specs in your terminal.
 
 
 Installation
 -------------------
 
-Assuming you have PhantomJs setup and installed...
-
+    brew install phantomjs
     sudo npm install phantom-jasmine -g
 
 
