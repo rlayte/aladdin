@@ -18,9 +18,3 @@ var Util = {
     return acc;
   }
 };
-
-foo.bar = function() {
-  return true;
-};
-
-foo.bar();
