@@ -11,4 +11,18 @@ describe("nested describe", function() {
       expect(false).toBeTruthy();
     });
   });
+
+  describe("mixed", function() {
+    it ("should fail for the example", function() {
+      expect(false).toBeTruthy();
+    });
+
+    it ("should fail for the example", function() {
+      expect(false).toBeTruthy();
+    });
+
+    it ("should pass for the example", function() {
+      expect(true).toBeTruthy();
+    });
+  });
 });
