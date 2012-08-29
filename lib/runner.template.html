@@ -16,9 +16,11 @@
     <script src="{{{.}}}" type="text/javascript" charset="utf-8"></script>
     {{/specs}}
 
+    
     <script type="text/javascript" src="{{{lib}}}/console-runner.js"></script>
 
     <script type="text/javascript">
+      var trace = {{trace}};
       var console_reporter = new jasmine.ConsoleReporter()
       jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
       jasmine.getEnv().addReporter(console_reporter);
