@@ -1,9 +1,3 @@
-Phantom-Jasmine
-=====================
-
-Run jasmine specs in your terminal.
-
-
 Installation
 -------------------
 
@@ -11,8 +5,8 @@ Installation
     sudo npm install phantom-jasmine -g
 
 
-Loading source file
--------------------
+Loading source files
+--------------------
 
 By default phantom-jasmine will look for a yaml file in `spec/load.yml`. Use this to list all the scripts you want to load before your specs. e.g.
 
