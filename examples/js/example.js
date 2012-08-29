@@ -19,6 +19,8 @@ var Util = {
   }
 };
 
-var fail = function() {
-  return foo;
+foo.bar = function() {
+  return true;
 };
+
+foo.bar();

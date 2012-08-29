@@ -5,10 +5,10 @@ describe("failure", function() {
   });
 
   it('should fail if dependency is not loaded', function() {
-    expect(foo).toBeDefined();
+    expect(bar).toBeDefined();
   });
 
   it('should fail if function is invalid', function() {
-    expect(fail()).toBeDefined();
+    expect(foo.bar()).toBeTruthy();
   });
 });
