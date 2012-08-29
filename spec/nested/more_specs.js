@@ -1,13 +1,6 @@
-describe("Util", function() {
-  it ("should fail for the example", function() {
-    expect(true).toBeTruthy();
-  });
+describe("nested spec", function() {
 
-  it ("should fail for the example", function() {
-    expect(true).toBeTruthy();
-  });
-
-  it ("should fail for the example", function() {
+  it ("should pass for the example", function() {
     expect(true).toBeTruthy();
   });
 });
