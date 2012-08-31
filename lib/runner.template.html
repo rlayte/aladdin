@@ -23,7 +23,7 @@
 
     <script type="text/javascript">
       var trace = {{trace}};
-      var console_reporter = new jasmine.ConsoleReporter()
+      var console_reporter = new jasmine.ConsoleReporter("{{format}}");
 
       jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
       jasmine.getEnv().addReporter(console_reporter);

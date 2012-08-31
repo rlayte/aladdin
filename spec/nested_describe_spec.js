@@ -7,6 +7,27 @@ describe("nested describe", function() {
   });
 
   describe("failure", function() {
+    describe("again", function() {
+
+      it ("should fail for the example", function() {
+        expect(false).toBeTruthy();
+      });
+      
+      describe("and", function() {
+
+        it ("should fail for the example", function() {
+          expect(false).toBeTruthy();
+        });
+
+        describe("again", function() {
+
+          it ("should fail for the example", function() {
+            expect(false).toBeTruthy();
+          });
+        });
+      });
+    });
+
     it ("should fail for the example", function() {
       expect(false).toBeTruthy();
     });
