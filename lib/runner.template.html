@@ -22,8 +22,7 @@
     <script type="text/javascript" src="{{{lib}}}/console-runner.js"></script>
 
     <script type="text/javascript">
-      var trace = {{trace}};
-      var console_reporter = new jasmine.ConsoleReporter("{{format}}");
+      var console_reporter = new jasmine.ConsoleReporter({{trace}}, "{{format}}");
 
       jasmine.getEnv().addReporter(new jasmine.HtmlReporter());
       jasmine.getEnv().addReporter(console_reporter);

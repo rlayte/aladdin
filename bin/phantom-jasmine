@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
 var jasmine = require('../lib');
+var program = require('commander');
 
-jasmine();
+program
+  .version('0.2.7')
+  .option('-t, --trace', 'Show full stack trace on error')
+  .option('-f, --format [type]', 'Spec output format. [doc]', 'none')
+  .parse(process.argv);
+
+jasmine(program);
