@@ -8,7 +8,7 @@ Installation
 Loading source files
 --------------------
 
-By default phantom-jasmine will look for a json file in `spec/load.json`. Use this to list all the scripts you want to load before your specs. e.g.
+By default phantom-jasmine will look for a json file in `spec/config.json`. Use this to list all the scripts you want to load before your specs. e.g.
 
     [ 
       'lib/jquery.js',
