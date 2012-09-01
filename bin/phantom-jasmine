@@ -4,7 +4,7 @@ var jasmine = require('../lib');
 var program = require('commander');
 
 program
-  .version('0.2.7')
+  .version('0.2.8')
   .option('-t, --trace', 'Show full stack trace on error')
   .option('-f, --format [type]', 'Spec output format. [doc]', 'none')
   .parse(process.argv);
