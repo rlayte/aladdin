@@ -31,7 +31,8 @@ Or run specific specs
     phantom-jasmine spec/path/
 
 If everything works you should see output like this in your terminal:
-Starting...
+
+    Starting...
 
     Failures:
 
@@ -40,4 +41,4 @@ Starting...
 
 
     Finished in 0.009 seconds
-    21 specs, 15 failures
+    21 specs, 1 failures
