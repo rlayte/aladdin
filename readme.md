@@ -45,6 +45,6 @@ If everything works you should see output like this in your terminal:
 Options
 -------
 
-  --format, -f [type]   Specify a format type for the spec output. Options "doc"
-  --config, -c [file]   Path to config file
-  --trace, -t           Show full stack traces
+    --format, -f [type]   Specify a format type for the spec output. Options "doc"
+    --config, -c [file]   Path to config file
+    --trace, -t           Show full stack traces
