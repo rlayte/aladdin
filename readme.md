@@ -31,10 +31,13 @@ Or run specific specs
     phantom-jasmine spec/path/
 
 If everything works you should see output like this in your terminal:
+Starting...
 
-    Util : should fail for the example
-    Error: Expected false to be truthy.
+    Failures:
 
-    Finished
-    -----------------
-    3 specs, 1 failure in 0.024s.
+      1) failure should fail for the example.
+         Expected false to be truthy.
+
+
+    Finished in 0.009 seconds
+    21 specs, 15 failures
