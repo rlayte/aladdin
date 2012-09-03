@@ -39,6 +39,12 @@ If everything works you should see output like this in your terminal:
       1) failure should fail for the example.
          Expected false to be truthy.
 
-
     Finished in 0.009 seconds
     21 specs, 1 failures
+
+Options
+-------
+
+  --format, -f [type]   Specify a format type for the spec output. Options "doc"
+  --config, -c [file]   Path to config file
+  --trace, -t           Show full stack traces
