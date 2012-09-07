@@ -1,8 +1,14 @@
+Aladdin
+=======
+
+A whole new world of javascript testing.
+
+
 Installation
 -------------------
 
     brew install phantomjs
-    sudo npm install phantom-jasmine -g
+    sudo npm install aladdin -g
 
 
 Loading source files
@@ -17,18 +23,18 @@ By default phantom-jasmine will look for a json file in `spec/config.json`. Use 
 
 If you want to put this file elsewhere use the `--config` flag, e.g.
 
-    phantom-jasmine --config tests/config.json
+    aladdin --config tests/config.json
 
 
 Running Tests
 -------------------
 
-    phantom-jasmine
+    aladdin
 
 Or run specific specs
 
-    phantom-jasmine spec/path/my_spec.js
-    phantom-jasmine spec/path/
+    aladdin spec/path/my_spec.js
+    aladdin spec/path/
 
 If everything works you should see output like this in your terminal:
 

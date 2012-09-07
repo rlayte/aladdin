@@ -1,20 +1,22 @@
 {
-  "name": "phantom-jasmine",
+  "name": "Aladdin",
   "description": "Phantom test runner for Jasmine",
   "keywords": [
+    "jasmine",
     "testing",
     "bdd",
+    "tdd",
     "headless"
   ],
-  "author": "Joshua Carver",
+  "author": "Richard Layte",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jcarver989/phantom-jasmine.git"
+    "url": "git@github.com:rlayte/aladdin.git"
   },
   "main": "lib/run_jasmine_test.coffee",
   "version": "0.3.1",
   "bin": {
-    "phantom-jasmine": "./bin/phantom-jasmine"
+    "phantom-jasmine": "./bin/aladdin"
   },
   "preferGlobal": true,
   "dependencies": {
