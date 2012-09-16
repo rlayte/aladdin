@@ -23,7 +23,8 @@
     "walkdir": "0.0.4",
     "mustache": "0.5.2",
     "glob": "3.1.12",
-    "commander": "1.0.4"
+    "commander": "1.0.4",
+    "glob-whatev": "0.1.8"
   },
   "devDependencies": {},
   "optionalDependencies": {},
