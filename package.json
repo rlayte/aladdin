@@ -14,7 +14,7 @@
     "url": "git@github.com:rlayte/aladdin.git"
   },
   "main": "lib/run_jasmine_test.coffee",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "bin": {
     "aladdin": "./bin/aladdin"
   },
