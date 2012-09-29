@@ -54,3 +54,4 @@ Options
     --format, -f [type]   Specify a format type for the spec output. Options "doc"
     --config, -c [file]   Path to config file
     --trace, -t           Show full stack traces
+    --defer, -d           Defers execution of tests, requiring a manual call to `jasmine.getEnv().execute();`

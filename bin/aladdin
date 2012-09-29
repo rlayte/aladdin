@@ -8,6 +8,7 @@ program
   .option('-t, --trace', 'Show full stack trace on error')
   .option('-c, --config [file]', 'Path to config file', 'spec/config.json')
   .option('-f, --format [type]', 'Spec output format. [doc]', 'none')
+  .option('-d, --defer', 'Defers execution of tests.')
   .parse(process.argv);
 
 jasmine(program);
