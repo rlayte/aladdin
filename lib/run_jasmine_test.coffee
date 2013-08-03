@@ -30,7 +30,7 @@ runner = new PhantomJasmineRunner(page)
 page.onConsoleMessage = (msg) ->
   console.log msg
 
-  finished = page.evaluate(-> console_reporter.finished)
+  finished = page.evaluate(-> console_reporter? and console_reporter.finished)
 
   if finished
     runner.terminate()
